@@ -13,7 +13,13 @@ inputEls.forEach((inputEl) => {
   });
 });
 showPasswordEl.addEventListener("click", (e) => {
-  passwordInputEl.type === "password"
-    ? (passwordInputEl.type = "text")
-    : (passwordInputEl.type = "password");
+  if (passwordInputEl.type === "password") {
+    passwordInputEl.type = "text";
+    passwordInputEl.nextElementSibling.classList.add("fa-eye-slash");
+    passwordInputEl.nextElementSibling.classList.remove("fa-eye");
+  } else {
+    passwordInputEl.nextElementSibling.classList.remove("fa-eye-slash");
+    passwordInputEl.nextElementSibling.classList.add("fa-eye");
+    passwordInputEl.type = "password";
+  }
 });
